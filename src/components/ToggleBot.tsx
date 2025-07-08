@@ -1,53 +1,61 @@
-import { useDevCycleClient, useVariableValue } from '@devcycle/react-client-sdk';
-import classNames from 'classnames';
+import {
+  useDevCycleClient,
+  useVariableValue,
+} from "@devcycle/react-client-sdk";
+import classNames from "classnames";
+import {
+  A_NEWER_FEATURE,
+  PHOTOS_SOURCE,
+  SIMPLE_13_APP_ROUTER_DEMO,
+} from "../../dvcVariableTypes";
 
 function ToggleBot() {
   /**
    * The useVariableValue hook will return the current value of a variable.
    * If no value is defined for the current user, the default value will be returned.
    */
-  const devcycleClient = useDevCycleClient()
-  const shouldWink = useVariableValue('togglebot-wink', false)
-  const spinSpeed = useVariableValue('togglebot-speed', 'off')
+  const devcycleClient = useDevCycleClient();
+  const shouldWink = useVariableValue(SIMPLE_13_APP_ROUTER_DEMO, false);
+  const spinSpeed = useVariableValue(PHOTOS_SOURCE, "off");
+  const myFeature = useVariableValue(A_NEWER_FEATURE, false);
 
-  const features = devcycleClient.allFeatures()
-  const { variationName = 'Default' } = features['hello-togglebot'] ?? {}
+  const features = devcycleClient.allFeatures();
+  const { variationName = "Default" } = features["hello-togglebot"] ?? {};
 
   return (
     <div className="App-content">
-      <div className="ToggleBot-message">
-        "{getMessage(spinSpeed)}"
-      </div>
+      <div className="ToggleBot-message">"{getMessage(spinSpeed)}"</div>
       <img
         src={getImageSource(spinSpeed, shouldWink)}
-        className={classNames(['ToggleBot-logo', `spin-${spinSpeed}`])}
+        className={classNames(["ToggleBot-logo", `spin-${spinSpeed}`])}
         alt="togglebot"
       />
       <div className="ToggleBot-variation">
         Serving Variation: <b>"{variationName}"</b>
       </div>
+      {myFeature && <div>My Feature is true</div>}
     </div>
   );
 }
 
 const getMessage = (spinSpeed: string) => {
   switch (spinSpeed) {
-    case 'slow':
-      return 'Awesome, look at you go!'
-    case 'fast':
-      return 'This is fun!'
-    case 'off-axis':
-      return '...I\'m gonna be sick...'
-    case 'surprise':
-      return 'What the unicorn?'
+    case "slow":
+      return "Awesome, look at you go!";
+    case "fast":
+      return "This is fun!";
+    case "off-axis":
+      return "...I'm gonna be sick...";
+    case "surprise":
+      return "What the unicorn?";
     default:
-      return 'Hello! Nice to meet you.'
+      return "Hello! Nice to meet you.";
   }
-}
+};
 
 const getImageSource = (spinSpeed: string, shouldWink: boolean) => {
-  if (spinSpeed === 'surprise') return 'unicorn.svg'
-  return shouldWink ? 'togglebot-wink.svg' : 'togglebot.svg'
-}
+  if (spinSpeed === "surprise") return "unicorn.svg";
+  return shouldWink ? "togglebot-wink.svg" : "togglebot.svg";
+};
 
 export default ToggleBot;

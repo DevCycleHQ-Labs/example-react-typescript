@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2018",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "noImplicitAny": true,
     "baseUrl": "./",
     "allowJs": true,
@@ -22,8 +18,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "downlevelIteration": true,
-    "jsx": "preserve",
-    "incremental": true,
+    "jsx": "react-jsx",
+    "incremental": true
   },
   "include": [
     "src/**/*.ts",
@@ -34,15 +30,10 @@
     "__tests__/**/*.tsx",
     "__tests__/**/*.js",
     "__tests__/**/*.jsx",
-    "**/*.d.ts",
+    "**/*.d.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ],
-  "typeRoots": [
-    "./types",
-    "./node_modules/@types"
-  ],
+  "exclude": ["node_modules"],
+  "typeRoots": ["./types", "./node_modules/@types"],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
