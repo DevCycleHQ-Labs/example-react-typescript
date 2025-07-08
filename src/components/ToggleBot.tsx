@@ -7,7 +7,7 @@ function ToggleBot() {
    * If no value is defined for the current user, the default value will be returned.
    */
   const devcycleClient = useDevCycleClient()
-  const shouldWink = useVariableValue('togglebot-wink', false)
+  const shouldWink = false // Removed stale variable 'togglebot-wink'
   const spinSpeed = useVariableValue('togglebot-speed', 'off')
 
   const features = devcycleClient.allFeatures()
