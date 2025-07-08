@@ -4,7 +4,6 @@ import {
 } from "@devcycle/react-client-sdk";
 import classNames from "classnames";
 import {
-  A_NEWER_FEATURE,
   PHOTOS_SOURCE,
   SIMPLE_13_APP_ROUTER_DEMO,
 } from "../../dvcVariableTypes";
@@ -17,7 +16,6 @@ function ToggleBot() {
   const devcycleClient = useDevCycleClient();
   const shouldWink = useVariableValue(SIMPLE_13_APP_ROUTER_DEMO, false);
   const spinSpeed = useVariableValue(PHOTOS_SOURCE, "off");
-  const myFeature = useVariableValue(A_NEWER_FEATURE, false);
 
   const features = devcycleClient.allFeatures();
   const { variationName = "Default" } = features["hello-togglebot"] ?? {};
@@ -33,7 +31,6 @@ function ToggleBot() {
       <div className="ToggleBot-variation">
         Serving Variation: <b>"{variationName}"</b>
       </div>
-      {myFeature && <div>My Feature is true</div>}
     </div>
   );
 }
