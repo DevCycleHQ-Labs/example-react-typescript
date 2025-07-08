@@ -1,11 +1,7 @@
-import { useVariableValue } from '@devcycle/react-client-sdk';
-
 function Description() {
-  const step = useVariableValue('example-text', 'default')
-
   return (
     <div className="App-description" data-testid="app-description">
-      {getMessage(step)}
+      {getMessage('default')}
       <a
         className="App-link"
         href="https://docs.devcycle.com/sdk/client-side-sdks/react/"
