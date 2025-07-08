@@ -1,7 +1,7 @@
 import { useVariableValue } from '@devcycle/react-client-sdk';
 
 function Description() {
-  const step = useVariableValue('example-text', 'default')
+  const step = 'default' // Removed stale variable 'example-text'
 
   return (
     <div className="App-description" data-testid="app-description">
