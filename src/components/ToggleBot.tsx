@@ -1,4 +1,4 @@
-import { useDevCycleClient, useVariableValue } from '@devcycle/react-client-sdk';
+import { useDevCycleClient } from '@devcycle/react-client-sdk';
 import classNames from 'classnames';
 
 function ToggleBot() {
@@ -7,8 +7,8 @@ function ToggleBot() {
    * If no value is defined for the current user, the default value will be returned.
    */
   const devcycleClient = useDevCycleClient()
-  const shouldWink = useVariableValue('togglebot-wink', false)
-  const spinSpeed = useVariableValue('togglebot-speed', 'off')
+  const shouldWink = false; // Removed stale variable 'togglebot-wink'
+  const spinSpeed = 'off'; // Removed stale variable 'togglebot-speed'
 
   const features = devcycleClient.allFeatures()
   const { variationName = 'Default' } = features['hello-togglebot'] ?? {}
