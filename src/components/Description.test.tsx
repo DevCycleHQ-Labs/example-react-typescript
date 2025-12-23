@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Description from './Description';
 import { useVariableValue } from '@devcycle/react-client-sdk';
 
-const mockUseVariableValue = jest.mocked(useVariableValue)
+const mockUseVariableValue = useVariableValue as jest.MockedFunction<typeof useVariableValue>
 
 test.each([
   'default',

@@ -4,6 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/
 
 # testing
 /coverage
@@ -18,6 +21,9 @@
 .env.test.local
 .env.production.local
 .env
+
+# IDE
+.idea/
 
 npm-debug.log*
 yarn-debug.log*

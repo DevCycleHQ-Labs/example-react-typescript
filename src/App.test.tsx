@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 import { useIsDevCycleInitialized } from '@devcycle/react-client-sdk';
 
-const mockUseIsDevCycleInitialized = jest.mocked(useIsDevCycleInitialized)
+const mockUseIsDevCycleInitialized = useIsDevCycleInitialized as jest.MockedFunction<typeof useIsDevCycleInitialized>
 
 test('renders demo app', () => {
   render(<App />);
